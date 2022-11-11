@@ -1,0 +1,13 @@
+127.0.0.1 - - [01/Nov/2022:16:28:03 -0300] "HEAD /netbeans-tomcat-status-test HTTP/1.1" 404 -
+127.0.0.1 - - [01/Nov/2022:16:28:03 -0300] "GET /manager/text/ HTTP/1.1" 401 2562
+127.0.0.1 - - [01/Nov/2022:16:28:10 -0300] "HEAD /netbeans-tomcat-status-test HTTP/1.1" 404 -
+127.0.0.1 - - [01/Nov/2022:16:28:10 -0300] "GET /manager/text/ HTTP/1.1" 401 2562
+127.0.0.1 - - [01/Nov/2022:16:28:10 -0300] "HEAD /netbeans-tomcat-status-test HTTP/1.1" 404 -
+127.0.0.1 - - [01/Nov/2022:16:28:10 -0300] "GET /manager/text/ HTTP/1.1" 401 2562
+127.0.0.1 - - [01/Nov/2022:16:28:10 -0300] "HEAD /netbeans-tomcat-status-test HTTP/1.1" 404 -
+127.0.0.1 - - [01/Nov/2022:16:28:10 -0300] "GET /manager/text/ HTTP/1.1" 401 2562
+127.0.0.1 - admin [01/Nov/2022:16:28:10 -0300] "GET /manager/text/list HTTP/1.1" 200 273
+127.0.0.1 - admin [01/Nov/2022:16:28:10 -0300] "GET /manager/text/list HTTP/1.1" 200 273
+127.0.0.1 - admin [01/Nov/2022:16:28:10 -0300] "GET /manager/text/reload?path=/VentasPc HTTP/1.1" 200 78
+0:0:0:0:0:0:0:1 - - [01/Nov/2022:16:28:11 -0300] "GET /VentasPc HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [01/Nov/2022:16:28:11 -0300] "GET /VentasPc/ HTTP/1.1" 404 700
