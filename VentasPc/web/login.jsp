@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Ruta
-    Created on : 10 nov 2022, 21:42:36
+    Document   : login
+    Created on : 13 nov 2022, 19:12:12
     Author     : Diego
 --%>
 
@@ -12,6 +12,11 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%@ page import="controller.Login" %>
+        
+        <form action="Login" method="post">
+            <input type="text" name="user">
+            <input type="submit">
+        </form>
     </body>
 </html>
