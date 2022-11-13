@@ -10,14 +10,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Cliente;
 import modelo.Conexion;
 
 /**
  *
  * @author Diego
  */
-public class Registro extends HttpServlet {
+public class Login extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,24 +30,14 @@ public class Registro extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-                 String nombre= request.getParameter("nombre");
-            String apellido= request.getParameter("apellido");
-            String direccion= request.getParameter("direccion");
-            int telefono= Integer.parseInt(request.getParameter("telefono"));
-            String correo= request.getParameter("correo");
-            
-            Conexion con= new Conexion();
-            
-            Cliente c1= new Cliente(nombre, apellido, direccion, telefono, correo);
-            if(con.agregarCliente(c1)){
-                request.setAttribute("atrib", c1);
-                request.getRequestDispatcher("/PagPrincipal.jsp").forward(request, response);
-            }else{
-                request.getRequestDispatcher("/Error.jsp").forward(request, response);
-            }
+        PrintWriter out = response.getWriter();
+        String c= request.getParameter("user");
+        
+        Conexion con= new Conexion();
+        if(con.login(c)){
+            response.sendRedirect("PagPrincipal.jsp");
         }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
