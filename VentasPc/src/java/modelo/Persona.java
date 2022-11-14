@@ -9,10 +9,10 @@ package modelo;
  * @author Diego
  */
 public abstract class Persona {
-    protected String nombre;
+    public String nombre;
     protected String apellido;
     protected int dni;
-    protected int telefono;
+    public int telefono;
     
     public Persona(String n, String a, int d, int t){
         this.nombre= n;

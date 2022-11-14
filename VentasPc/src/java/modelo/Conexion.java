@@ -46,26 +46,20 @@ public class Conexion {
         return false;
     }
      
-     public ArrayList<Cliente> listarClientes(){
-        ArrayList<Cliente> listaCliente=new ArrayList<>();
-        String consulta="select * from cliente";
-        try {
-            PreparedStatement comandos=miConexion.prepareStatement(consulta);
-            ResultSet tabla = comandos.executeQuery();
-            while(tabla.next()){
-                String nombre=tabla.getString("nombre");
-                String apellido =tabla.getString("apellido");
-                String direccion=tabla.getString("direccion");
-                int telefono=tabla.getInt("telefono");
-                String email=tabla.getString("correo");
-                Cliente unCliente= new Cliente(nombre,apellido,direccion,telefono,email);
-                listaCliente.add(unCliente);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        return listaCliente;
-    }
+        public boolean login(String correo){
+         String consulta= "select * from cliente where correo = ?";
+         try{
+             PreparedStatement comando= miConexion.prepareStatement(consulta);
+             comando.setString(1, correo);
+             ResultSet rs= comando.executeQuery();
+             if(rs.absolute(1)){
+                return true;
+             }
+         }catch(SQLException ex){
+             System.err.println(ex);
+         }
+         return false;
+     }
+
     
 }

@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package controller;
 
@@ -10,14 +11,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Cliente;
 import modelo.Conexion;
 
 /**
  *
- * @author Diego
+ * @author localuser
  */
-public class Registro extends HttpServlet {
+public class Login extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -28,28 +28,17 @@ public class Registro extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-                 String nombre= request.getParameter("nombre");
-            String apellido= request.getParameter("apellido");
-            String direccion= request.getParameter("direccion");
-            int telefono= Integer.parseInt(request.getParameter("telefono"));
-            String correo= request.getParameter("correo");
-            
-            Conexion con= new Conexion();
-            
-              Cliente c1= new Cliente(nombre, apellido, direccion, telefono, correo);
-            if(con.agregarCliente(c1)){
-                request.setAttribute("atrib", c1);
-                
-                request.getRequestDispatcher("/PagPrincipal.jsp").forward(request, response);
-            }else{
-                request.getRequestDispatcher("/Error.jsp").forward(request, response);
-            }
+        PrintWriter out = response.getWriter();
+        String c= request.getParameter("user");
+
+        Conexion con= new Conexion();
+        if(con.login(c)){
+            response.sendRedirect("PagPrincipal.jsp");
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

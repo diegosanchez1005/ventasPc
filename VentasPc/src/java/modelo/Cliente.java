@@ -9,10 +9,10 @@ package modelo;
  * @author Diego
  */
 public class Cliente extends Persona{
-    String correo;
-    String cuenta;
-    String pass;
-    String direc;
+    public String correo;
+    private String cuenta;
+    private String pass;
+    public String direc;
 
     public Cliente(String correo, String cuenta, String pass, String n, String a, int d, int t, String direc) {
         super(n, a, d, t);

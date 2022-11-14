@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    background: linear-gradient(to bottom right, rgb(95, 155, 224), rgb(5, 7, 143));
+}
+h1{
+    text-align: center;
+    margin: 70px auto;
+}
+.pc__img__container{
+    width: 300px;
+    height: 300px;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+}
+
+header{
+
+    display: flex;
+    height: 60px;
+}
+.logo__container{
+    flex-grow: 2;  
+}
+
+.logo{
+    width: 200px;
+    height: 200px;
+}
+.logo img{
+    width: 100%;
+    height: 100%;
+}
+
+.links{
+    margin: 20px 0 0 0;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.links a{
+    text-decoration: none;
+}
+
+
+.economicas__container{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.pc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 90px 0;
+}
+
+.pc input{
+    margin: 10px;
+    width:100% ;
+    padding: 8px;
+    background: rgb(5, 6, 63);
+    border: none;
+    color: white;
+    border-radius: 7px;
+    transition: .5s;
+}
+
+.pc input:hover{
+    background: linear-gradient(to bottom right, rgb(255, 145, 0), rgb(211, 0, 0));
+}
+.precio{
+    color: rgb(255, 145, 0);
+    margin: 5px 0 0 0;
+}
