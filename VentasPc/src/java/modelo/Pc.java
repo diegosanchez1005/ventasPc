@@ -11,11 +11,20 @@ public class Pc {
     private ArrayList<Componente> componentes= new ArrayList<>();
     private String nombre;
     private int precio;
+    private Vendedor vendedor;
     
     public Pc( String n, int p){
         this.precio= p;
         this.nombre= n;
     }
+
+    public Pc(String nombre, int precio, Vendedor vendedor) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.vendedor = vendedor;
+    }
+    
+    
 
     public String getNombre() {
         return nombre;
@@ -28,6 +37,15 @@ public class Pc {
     public ArrayList<Componente> getComponentes() {
         return componentes;
     }
+
+    public Vendedor getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(Vendedor vendedor) {
+        this.vendedor = vendedor;
+    }
+    
     
     public void agregarComp(Componente c){
         componentes.add(c);
@@ -38,11 +56,7 @@ public class Pc {
     }
     
     public String toString(){
-        String cadena= this.nombre+ " Componentes: ";
-        
-        for(Componente c: componentes){
-            cadena+= "\n \t"+c.toString();
-        }
+        String cadena= this.vendedor.nombre;
         return cadena;
     }
     

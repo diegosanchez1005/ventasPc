@@ -52,7 +52,7 @@ public class Conexion {
              PreparedStatement comando= miConexion.prepareStatement(consulta);
              comando.setString(1, correo);
              ResultSet rs= comando.executeQuery();
-             if(rs.absolute(1)){
+             while(rs.next()){
                 return true;
              }
          }catch(SQLException ex){
@@ -60,6 +60,25 @@ public class Conexion {
          }
          return false;
      }
-
+        
+          public boolean compraPc(int idVendedor, int idCliente, int idPc ){       
+        String consulta = "insert into factura(fecha, cyberMonday, idVendedor, idCliente, idComp) values(CURRENT_TIMESTAMP(),0,?,?,?)";
+        try {
+            PreparedStatement comando=miConexion.prepareStatement(consulta);
+            comando.setInt(3, idVendedor);
+            comando.setInt(4, idCliente);
+            comando.setInt(5, idPc);
+            comando.executeUpdate();    
+            return true;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+        public static void main(String[] args) {
+        Conexion con= new Conexion();
+        con.compraPc(1, 10, 1);
+    }
     
 }

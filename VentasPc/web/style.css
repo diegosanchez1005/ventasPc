@@ -81,3 +81,6 @@ header{
     color: rgb(255, 145, 0);
     margin: 5px 0 0 0;
 }
+.pcs__container h2{
+    text-align: center;
+}

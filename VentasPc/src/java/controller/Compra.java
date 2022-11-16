@@ -31,9 +31,16 @@ public class Compra extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           String pc= request.getParameter("eleccion");
+           String e1= request.getParameter("pc1");
+           String e2= request.getParameter("pc2");
+           String e3= request.getParameter("pc3");
+           String e4= request.getParameter("pc4");
+           
+           
            
            Conexion con= new Conexion();
+           
+           
            
         }
     }

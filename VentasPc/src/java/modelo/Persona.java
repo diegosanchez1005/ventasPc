@@ -21,6 +21,12 @@ public abstract class Persona {
         this.telefono= t;
     }
 
+    public Persona(String nombre, int telefono) {
+        this.nombre = nombre;
+        this.telefono = telefono;
+    }
+    
+
     public Persona(String nombre, String apellido, int telefono) {
         this.nombre = nombre;
         this.apellido = apellido;
