@@ -40,7 +40,8 @@ public abstract class Componente {
     
     public double calcularPrecioComp(){
         if(this.paisOrigen == "USA"){
-            double pf = this.precio + 20;
+            double pf= this.precio;
+            pf += this.precio/100 * 10;
             return pf;
         }
         return this.precio;

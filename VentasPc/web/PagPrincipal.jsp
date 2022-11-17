@@ -4,6 +4,7 @@
     Author     : Diego
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,6 +20,7 @@
       Vendedor v2= new Vendedor("Cristian",157738);  
       Vendedor v3= new Vendedor("Dylan",1136789);  
       
+      Cliente c1= new Cliente("Gonzalo","Gimenez","Villa del Parque",1526152,"Gonza123@");
         
       Pc pc1= new Pc("HP Atlon One",5000,v1); 
       Pc pc2= new Pc("HP All In One",5000,v1); 
@@ -59,7 +61,13 @@
       pc4.agregarComp(ram4);
       pc4.agregarComp(p4);
       pc4.agregarComp(gab4);
-
+      
+      Factura f1= new Factura(c1,pc1,v1);
+      Factura f2= new Factura(c1,pc2,v1);
+   
+      
+    f1.addfactura(f1);
+    f2.addfactura(f2);
     %>
     <header>
         <div class="logo__container">
@@ -136,6 +144,9 @@
             </div>
 
         </form>
+                        <p><%= f1.toString()%></p>
+                        <p><%= f2.toString()%></p>
+                        <p><%= f2.validarDescuento()%></p>
     </div>
 </body>
 </html>

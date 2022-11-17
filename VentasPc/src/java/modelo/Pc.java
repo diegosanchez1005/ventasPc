@@ -9,6 +9,7 @@ import java.util.ArrayList;
  */
 public class Pc {
     private ArrayList<Componente> componentes= new ArrayList<>();
+    private ArrayList<Cliente> clientes= new ArrayList<>();
     private String nombre;
     private int precio;
     private Vendedor vendedor;
@@ -66,6 +67,7 @@ public class Pc {
             total+= c.calcularPrecioComp();
             
         }
+     
         return total+ this.precio;
     }
     
