@@ -8,21 +8,32 @@ import java.util.ArrayList;
  * @author Diego
  */
 public class Pc {
+    private int id;
     private ArrayList<Componente> componentes= new ArrayList<>();
     private ArrayList<Cliente> clientes= new ArrayList<>();
     private String nombre;
     private int precio;
     private Vendedor vendedor;
     
-    public Pc( String n, int p){
+    public Pc(int id, String n, int p){
+        this.id= id;
         this.precio= p;
         this.nombre= n;
+        
     }
 
     public Pc(String nombre, int precio, Vendedor vendedor) {
         this.nombre = nombre;
         this.precio = precio;
         this.vendedor = vendedor;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
     
@@ -70,5 +81,7 @@ public class Pc {
      
         return total+ this.precio;
     }
+    
+    
     
 }

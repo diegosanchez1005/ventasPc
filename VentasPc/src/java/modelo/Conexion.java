@@ -61,13 +61,78 @@ public class Conexion {
          return false;
      }
         
-          public boolean compraPc(int idVendedor, int idCliente, int idPc ){       
+        
+        
+           public Cliente getClienteById(int id){
+         
+         String consulta= "select * from cliente where id = ?";
+         try{
+             PreparedStatement comando= miConexion.prepareStatement(consulta);
+             comando.setInt(1, id);
+             ResultSet rs= comando.executeQuery();
+             while(rs.next()){
+                String n= rs.getString("nombre");
+                String a= rs.getString("apellido");
+                String d= rs.getString("direccion");
+                int t= rs.getInt("telefono");
+                String c= rs.getString("correo");
+                
+                Cliente c1= new Cliente(id,n,a,d,t,c);
+                return c1;
+                
+             }
+         }catch(SQLException ex){
+             System.err.println(ex);
+         }
+         return null;
+     }
+           
+           
+              public Vendedor getVendedorById(int id){
+         String consulta= "select * from vendedor where id = ?";
+         try{
+             PreparedStatement comando= miConexion.prepareStatement(consulta);
+             comando.setInt(1, id);
+             ResultSet rs= comando.executeQuery();
+             while(rs.next()){
+                String n= rs.getString("nombre");
+                String a= rs.getString("apellido");
+                Vendedor v1= new Vendedor(id, n ,a);
+                return v1;
+             }
+         }catch(SQLException ex){
+             System.err.println(ex);
+         }
+         return null;
+     }
+              
+              
+              
+                 public Pc getPcById(int id){
+         String consulta= "select * from computadora where id = ?";
+         try{
+             PreparedStatement comando= miConexion.prepareStatement(consulta);
+             comando.setInt(1, id);
+             ResultSet rs= comando.executeQuery();
+             while(rs.next()){
+                String n= rs.getString("nombre");
+                int p= rs.getInt("precio");
+                Pc pc1= new Pc(id, n, p);
+                return pc1;
+             }
+         }catch(SQLException ex){
+             System.err.println(ex);
+         }
+         return null;
+     }
+        
+        public boolean addFactura(Factura fact){       
         String consulta = "insert into factura(fecha, cyberMonday, idVendedor, idCliente, idComp) values(CURRENT_TIMESTAMP(),0,?,?,?)";
         try {
             PreparedStatement comando=miConexion.prepareStatement(consulta);
-            comando.setInt(3, idVendedor);
-            comando.setInt(4, idCliente);
-            comando.setInt(5, idPc);
+            comando.setInt(3, fact.getVendedor().getId());
+            comando.setInt(4, fact.getCliente().getId());
+            comando.setInt(5, fact.getPc().getId());
             comando.executeUpdate();    
             return true;
             
@@ -76,9 +141,25 @@ public class Conexion {
         }
         return false;
     }
-        public static void main(String[] args) {
-        Conexion con= new Conexion();
-        con.compraPc(1, 10, 1);
-    }
+   
+         public ArrayList<Factura> devolverFacturas(){
+         ArrayList<Factura> facturas = new ArrayList<>();
+         String consulta= "Select * from factura";
+         try{
+             PreparedStatement comando= miConexion.prepareStatement(consulta);
+             ResultSet rs= comando.executeQuery();
+             while(rs.next()){
+              Cliente c1= getClienteById(rs.getInt("idCliente"));
+              Pc pc1= getPcById(rs.getInt("idPc"));
+              Vendedor v1= getVendedorById(rs.getInt("idVendedor"));
+
+              Factura fac= new Factura(c1, pc1, v1 );    
+              facturas.add(fac);
+             }
+         }catch(SQLException ex){
+             System.err.println(ex);
+         }
+         return facturas;
+     }
     
 }

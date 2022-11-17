@@ -9,46 +9,29 @@ package modelo;
  * @author Diego
  */
 public class Cliente extends Persona{
+    
+    protected int dni;
+    protected int telefono;
     public String correo;
     private String cuenta;
     private String pass;
     public String direc;
 
-    public Cliente(String correo, String cuenta, String pass, String n, String a, int d, int t, String direc) {
-        super(n, a, d, t);
+    public Cliente(int id,  String nombre,   String apellido, String direc, int telefono, String correo ) {
+        super(id, nombre, apellido);
+        this.telefono = telefono;
         this.correo = correo;
-        this.cuenta = cuenta;
-        this.pass = pass;
-        this.direc= direc;
-    }
-
-    public Cliente(String correo, String n, String a, int t) {
-        super(n, a, t);
-        this.correo = correo;
-    }
-
-    public Cliente(String nombre, String apellido, String direccion, int telefono, String correo) {
-        super(nombre, apellido, telefono);
-        this.correo = correo;
-        this.direc = direccion;
-    }
-
-    public Cliente(String correo, String cuenta, String pass, String direc, String n, String a, int d, int t) {
-        super(n, a, d, t);
-        this.correo = correo;
-        this.cuenta = cuenta;
-        this.pass = pass;
         this.direc = direc;
     }
 
-    public Cliente(String correo, String cuenta, String pass, String direc, String nombre, String apellido, int telefono) {
-        super(nombre, apellido, telefono);
+    public Cliente(String nombre,String apellido,  String direc, int telefono, String correo ) {
+        super(nombre, apellido);
+        this.telefono = telefono;
         this.correo = correo;
-        this.cuenta = cuenta;
-        this.pass = pass;
         this.direc = direc;
     }
-
+    
+    
     public String getCorreo() {
         return correo;
     }

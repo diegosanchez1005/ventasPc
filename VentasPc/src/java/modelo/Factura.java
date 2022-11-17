@@ -18,48 +18,18 @@ public class Factura {
     private boolean cyberM;
     private Cliente cliente;
     ArrayList<Pc> pcs= new ArrayList<>();
-    ArrayList<Factura> facturas= new ArrayList<>();
     Pc pc;
+   
     ArrayList<Cliente> clientes= new ArrayList<>();
-    
+   
     public Factura(Cliente c, Pc pc, Vendedor v){
         this.cliente= c;
         this.pc= pc;
         this.vendedor= v;
     }
+      
 
-    public Factura() {
-    }
-    
-    
-    
-    public double calcularDescuento(){
-                
-        double total= pc.calcularTotalPc();
-        total -= (total/100) * 5;
-        return total;
-    }
-    
-    public boolean validarDescuento(){
-         for(Factura f: facturas){
-            if(f.cliente.correo.contains(this.cliente.correo)){
-                return true;
-            }
-        }
-        return false;
-    }
-    
-    public void addCliente(Cliente c){
-           clientes.add(c);
-        }
-    
-    public void addPc(Pc pc){
-        pcs.add(pc);
-    }
-    
-    public void addfactura(Factura f){
-        facturas.add(f);
-    }
+
     
     public double facturacionVendedor(Vendedor v){
         double fact= pc.calcularTotalPc();
@@ -71,25 +41,69 @@ public class Factura {
         String cadena= "Cliente: "+ this.cliente.correo;
         cadena += "\n Pc: "+ this.pc.getNombre();
         cadena += "\n Vendido por: "+ this.vendedor.nombre;
-        if(validarDescuento()){
-            double descuento= pc.calcularTotalPc() - calcularDescuento();
-            cadena += "\n Descuento de 5%: ";
-            double total=pc.calcularTotalPc()- descuento;
-            cadena += "Total: " +total;
-        }else{
-            cadena += "Total: "+ pc.calcularTotalPc();
-        }
+      cadena += "Total: "+ pc.calcularTotalPc();
+        
         
         return cadena;
     }
+
+    public Vendedor getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(Vendedor vendedor) {
+        this.vendedor = vendedor;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public boolean isCyberM() {
+        return cyberM;
+    }
+
+    public void setCyberM(boolean cyberM) {
+        this.cyberM = cyberM;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public ArrayList<Pc> getPcs() {
+        return pcs;
+    }
+
+    public void setPcs(ArrayList<Pc> pcs) {
+        this.pcs = pcs;
+    }
+
+    public Pc getPc() {
+        return pc;
+    }
+
+    public void setPc(Pc pc) {
+        this.pc = pc;
+    }
+
+    public ArrayList<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(ArrayList<Cliente> clientes) {
+        this.clientes = clientes;
+    }
+    
 }
 
 
-//ArrayList<Facturas> facturas = bdd.selectFacturas(); //el selectFacturas consulta a la base de datos las facturas y las va sumando a un
 
-//for(Facturas a: facturas){
-//    %>
-//        <p>Cliente: <%=a.getCliente().getNombre()%></p>
-//    <%
-
-//}

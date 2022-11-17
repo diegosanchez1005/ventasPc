@@ -12,6 +12,10 @@
         <servlet-name>Compra</servlet-name>
         <servlet-class>controller.Compra</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Estadisticas</servlet-name>
+        <servlet-class>controller.Estadisticas</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Registro</servlet-name>
         <url-pattern>/Registro</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>Compra</servlet-name>
         <url-pattern>/Compra</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Estadisticas</servlet-name>
+        <url-pattern>/Estadisticas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

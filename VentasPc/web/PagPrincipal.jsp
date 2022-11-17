@@ -16,9 +16,9 @@
   <body>
     <%@page import="modelo.*"%>
     <%
-      Vendedor v1= new Vendedor("Caleb",1123564);  
-      Vendedor v2= new Vendedor("Cristian",157738);  
-      Vendedor v3= new Vendedor("Dylan",1136789);  
+      Vendedor v1= new Vendedor(1,"Caleb","Dress");  
+      Vendedor v2= new Vendedor(2,"Cristian","Fort");  
+      Vendedor v3= new Vendedor(3,"Dylan","Seltzer");  
       
       Cliente c1= new Cliente("Gonzalo","Gimenez","Villa del Parque",1526152,"Gonza123@");
         
@@ -64,10 +64,9 @@
       
       Factura f1= new Factura(c1,pc1,v1);
       Factura f2= new Factura(c1,pc2,v1);
-   
       
-    f1.addfactura(f1);
-    f2.addfactura(f2);
+      
+   
     %>
     <header>
         <div class="logo__container">
@@ -78,7 +77,7 @@
         <div class="links">
             <a href="#">Inicio</a>
             <a href="#">About us</a>
-            <a href="#">Estadisticas</a>
+            <a href="estadisticas.jsp">Estadisticas</a>
         </div>
     </header>
     <div class="Main">
@@ -141,12 +140,13 @@
                         <input type="submit" value="Comprar" name="pc4">
                     </div>
                 </div>
+                        
+                        
             </div>
-
+              
         </form>
-                        <p><%= f1.toString()%></p>
-                        <p><%= f2.toString()%></p>
-                        <p><%= f2.validarDescuento()%></p>
+                        
+                  
     </div>
 </body>
 </html>

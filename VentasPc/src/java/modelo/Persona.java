@@ -9,29 +9,48 @@ package modelo;
  * @author Diego
  */
 public abstract class Persona {
-    public String nombre;
+    protected int id;
+    protected String nombre;
     protected String apellido;
-    protected int dni;
-    public int telefono;
-    
-    public Persona(String n, String a, int d, int t){
-        this.nombre= n;
-        this.apellido= a;
-        this.dni= d;
-        this.telefono= t;
-    }
 
-    public Persona(String nombre, int telefono) {
-        this.nombre = nombre;
-        this.telefono = telefono;
-    }
-    
-
-    public Persona(String nombre, String apellido, int telefono) {
+    public Persona(int id, String nombre, String apellido) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.telefono = telefono;
     }
+
+    public Persona(String nombre, String apellido) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
+   
+
+ 
+    
     
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
 }
+   

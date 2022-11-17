@@ -9,9 +9,17 @@ package modelo;
  * @author Diego
  */
 public class Vendedor extends Persona{
-    
-    public Vendedor(String nombre, int telefono ){
-        super(nombre, telefono);
+
+    public Vendedor(int id, String nombre, String apellido) {
+        super(id, nombre, apellido);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -29,21 +37,7 @@ public class Vendedor extends Persona{
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
+    
 
-    public int getDni() {
-        return dni;
-    }
-
-    public void setDni(int dni) {
-        this.dni = dni;
-    }
-
-    public int getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
-    }
     
 }
