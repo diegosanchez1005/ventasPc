@@ -1,3 +1,4 @@
+/*DIEGO SANCHEZ*/
 *{
     margin: 0;
     padding: 0;
@@ -75,7 +76,7 @@ header{
 }
 
 .pc input:hover{
-    background: linear-gradient(to bottom right, rgb(255, 145, 0), rgb(211, 0, 0));
+    background: linear-gradient(to bottom right, rgb(0, 144, 255), rgb(211, 0, 0));
 }
 .precio{
     color: rgb(255, 145, 0);

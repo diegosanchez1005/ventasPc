@@ -1,3 +1,4 @@
+//DIEGO SANCHEZ
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -16,6 +17,8 @@ import java.util.logging.Logger;
  *
  * @author Diego
  */
+
+//CONSTRUCTOR DE CONEXION
 public class Conexion {
     private Connection miConexion;
     public Conexion(){
@@ -27,7 +30,8 @@ public class Conexion {
         }
         
     }
-    
+
+//FUNCION PARA AGREGAR CLIENTE A LA BD
      public boolean agregarCliente(Cliente cliente){       
         String consulta = "insert into cliente(nombre, apellido, direccion, telefono, correo) values(?,?,?,?,?)";
         try {
@@ -45,7 +49,8 @@ public class Conexion {
         }
         return false;
     }
-     
+
+//FUNCION PARA LOGUEARSE EN CASO DE TENER CUENTA    
         public boolean login(String correo){
          String consulta= "select * from cliente where correo = ?";
          try{
@@ -62,10 +67,10 @@ public class Conexion {
      }
         
         
-        
+//FUNCION PARA OBTENER UN CLIENTE INGRESANDO EL ID        
            public Cliente getClienteById(int id){
          
-         String consulta= "select * from cliente where id = ?";
+         String consulta= "select * from cliente where idCliente = ?";
          try{
              PreparedStatement comando= miConexion.prepareStatement(consulta);
              comando.setInt(1, id);
@@ -87,9 +92,9 @@ public class Conexion {
          return null;
      }
            
-           
+//FUNCION PARA OBTENER UN VENDEDOR INGRESANDO EL ID               
               public Vendedor getVendedorById(int id){
-         String consulta= "select * from vendedor where id = ?";
+         String consulta= "select * from vendedor where idVendedor = ?";
          try{
              PreparedStatement comando= miConexion.prepareStatement(consulta);
              comando.setInt(1, id);
@@ -107,25 +112,27 @@ public class Conexion {
      }
               
               
-              
-                 public Pc getPcById(int id){
-         String consulta= "select * from computadora where id = ?";
+//FUNCION PARA OBTENER UNa PC INGRESANDO EL ID                   
+         public Pc getPcById(int id){
+         
+         String consulta= "select * from computadora where idComp = ?";
          try{
              PreparedStatement comando= miConexion.prepareStatement(consulta);
              comando.setInt(1, id);
              ResultSet rs= comando.executeQuery();
              while(rs.next()){
                 String n= rs.getString("nombre");
-                int p= rs.getInt("precio");
+                double p= rs.getDouble("precio");
                 Pc pc1= new Pc(id, n, p);
                 return pc1;
-             }
-         }catch(SQLException ex){
-             System.err.println(ex);
-         }
-         return null;
+                    }
+                }catch(SQLException ex){
+                System.err.println(ex);
+                    }
+          return null;
      }
-        
+
+//AGREGA UNA FACTURA A LA TABLA factura DE LA BD
         public boolean addFactura(Factura fact){       
         String consulta = "insert into factura(fecha, cyberMonday, idVendedor, idCliente, idComp) values(CURRENT_TIMESTAMP(),0,?,?,?)";
         try {
@@ -161,5 +168,21 @@ public class Conexion {
          }
          return facturas;
      }
+
+//DEVUELVE LO FACTURADO EN UN CYBERMONDAY
+        public double cyber(){
+            double total = 0;
+            String consulta= "Select SUM(precio) from factura where cYberMonday = 1";
+         try{
+             PreparedStatement comando= miConexion.prepareStatement(consulta);
+             ResultSet rs= comando.executeQuery();
+             rs.next();
+             total+= rs.getDouble("precio");
+             return total;
+         }catch(SQLException ex){
+             System.err.println(ex);
+         }
+         return total;
+        }
     
 }

@@ -1,3 +1,4 @@
+//DIEGO SANCHEZ
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -19,9 +20,9 @@ public class Factura {
     private Cliente cliente;
     ArrayList<Pc> pcs= new ArrayList<>();
     Pc pc;
-   
     ArrayList<Cliente> clientes= new ArrayList<>();
-   
+ 
+//CONSTRUCTOR    
     public Factura(Cliente c, Pc pc, Vendedor v){
         this.cliente= c;
         this.pc= pc;
@@ -29,8 +30,7 @@ public class Factura {
     }
       
 
-
-    
+//METODO PARA DEVLVER LO QUE FACTURA UN DETERMINADO EMPLEADO DESPUES DE UNA VENTA
     public double facturacionVendedor(Vendedor v){
         double fact= pc.calcularTotalPc();
         fact -= (pc.calcularTotalPc() / 100) * 80;
@@ -43,10 +43,10 @@ public class Factura {
         cadena += "\n Vendido por: "+ this.vendedor.nombre;
       cadena += "Total: "+ pc.calcularTotalPc();
         
-        
         return cadena;
     }
 
+//GETTERS Y SETTERS    
     public Vendedor getVendedor() {
         return vendedor;
     }

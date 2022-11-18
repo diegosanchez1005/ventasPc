@@ -1,4 +1,4 @@
-//Copia de Practica y Logica
+//JOSEPH GUERRERO
 package modelo;
 
 
@@ -7,12 +7,26 @@ public abstract class Componente {
     public String paisOrigen;
     public int precio;
     
+//CONSTRUCTOR    
     public Componente(String n, String po, int p){
         this.nombre= n;
         this.paisOrigen= po;
         this.precio= p;
     }
+    
+//CALCULA EL PRECIO DE UN COMPONENTE DEPENDIENDO EL ORIGEN
+//SI ES IMPORTADO LE SUMA UN 10% DE INTERES O IMPUESTO, SI ES DE ACA MANTIENE SU PRECIO
+//METODO CORREGIDO POR DIEGO SANCHEZ
+    public double calcularPrecioComp(){
+        if(this.paisOrigen == "USA"){
+            double pf= this.precio;
+            pf += this.precio/100 * 10;
+            return pf;
+        }
+        return this.precio;
+    }
 
+// GETTERS Y SETTERS    
     public String getNombre() {
         return nombre;
     }
@@ -37,18 +51,7 @@ public abstract class Componente {
         this.precio = precio;
     }
     
+
     
-    public double calcularPrecioComp(){
-        if(this.paisOrigen == "USA"){
-            double pf= this.precio;
-            pf += this.precio/100 * 10;
-            return pf;
-        }
-        return this.precio;
-    }
-    
-    //public String toString(){ 
-   // return  this.nombre+ " ("+calcularPrecio() + "$)"  ;
-    //}
 }
 

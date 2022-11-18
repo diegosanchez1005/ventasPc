@@ -1,3 +1,4 @@
+//DIEGO SANCHEZ
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
@@ -28,12 +29,13 @@ public class Registro extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    //SERVLET PARA REGISTRAR A UN USUARIO NUEVO CON LOS DATOS INGRESADOS EN index.jsp QUE ES LA PAG PARA REGISTRO
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-                 String nombre= request.getParameter("nombre");
+            String nombre= request.getParameter("nombre");
             String apellido= request.getParameter("apellido");
             String direccion= request.getParameter("direccion");
             int telefono= Integer.parseInt(request.getParameter("telefono"));

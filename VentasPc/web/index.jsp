@@ -1,3 +1,4 @@
+<%--DIEGO SANCHEZ--%>
 <%-- 
     Document   : Registrar
     Created on : 7 nov 2022, 21:29:28
@@ -18,7 +19,7 @@
         
       <header>
         <div class="logo__container">
-            <h1>Nombre de la pag</h1>
+            <h1>TecnoWorld</h1>
         </div>
         <div class="login">
             <p>¿Tienes una cuenta?</p>

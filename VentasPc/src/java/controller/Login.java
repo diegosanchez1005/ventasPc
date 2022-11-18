@@ -1,3 +1,4 @@
+//DIEGO SANCHEZ
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -28,6 +29,8 @@ public class Login extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+ 
+//SERVLET PARA CONECTAR A UN USUARIO QUE YA TIENE CUENTA Y DIRECCIONARLO DE UNA VEZ A LA PAGINA PRINCIPAL
 protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");

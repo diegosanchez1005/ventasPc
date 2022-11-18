@@ -1,4 +1,4 @@
-//Copia de Practica y Logica
+//DIEGO SANCHEZ
 package modelo;
 
 import java.util.ArrayList;
@@ -12,21 +12,26 @@ public class Pc {
     private ArrayList<Componente> componentes= new ArrayList<>();
     private ArrayList<Cliente> clientes= new ArrayList<>();
     private String nombre;
-    private int precio;
+    private double precio;
     private Vendedor vendedor;
-    
-    public Pc(int id, String n, int p){
+
+//CONSTRUCTORES    
+    public Pc(int id, String n, double p){
         this.id= id;
         this.precio= p;
         this.nombre= n;
         
     }
 
-    public Pc(String nombre, int precio, Vendedor vendedor) {
+    public Pc(String nombre, double precio, Vendedor vendedor) {
         this.nombre = nombre;
         this.precio = precio;
         this.vendedor = vendedor;
     }
+
+    public Pc() {
+    }
+    
 
     public int getId() {
         return id;
@@ -35,14 +40,12 @@ public class Pc {
     public void setId(int id) {
         this.id = id;
     }
-    
-    
 
     public String getNombre() {
         return nombre;
     }
 
-    public int getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
@@ -58,11 +61,11 @@ public class Pc {
         this.vendedor = vendedor;
     }
     
-    
+//AÑADE UN COMPONENTE A LA PC (IMPORTANTE PARA EL METODO calcularTotalPc)   
     public void agregarComp(Componente c){
         componentes.add(c);
     }
-    
+//ELIMINA UN COMPONENTE DE UNA PC    
     public void eliminarComp(Componente c){
         componentes.remove(c);
     }
@@ -71,6 +74,9 @@ public class Pc {
         String cadena= this.vendedor.nombre;
         return cadena;
     }
+ 
+//CALCULA EL TOTAL DE LA PC UNA VEZ QUE SE LE HAYAN AÑADIDO COMPONENTES
+//CALCULA EL PRECIO EN BASE A LOS COMPONENTES QUE TENGA
     
     public double calcularTotalPc(){
         double total= this.precio;

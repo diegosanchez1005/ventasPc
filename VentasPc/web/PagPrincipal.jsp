@@ -1,3 +1,4 @@
+<%--DIEGO SANCHEZ--%>
 <%-- 
     Document   : Datos
     Created on : 7 nov 2022, 22:11:57
@@ -16,11 +17,11 @@
   <body>
     <%@page import="modelo.*"%>
     <%
+//CREO LOS VENDEDORES, PCS, COMPONENTES, AGREGO LOS COMPONENTES A SUS RESPECTIVAS PCS Y LOS MUESTRO        
       Vendedor v1= new Vendedor(1,"Caleb","Dress");  
       Vendedor v2= new Vendedor(2,"Cristian","Fort");  
       Vendedor v3= new Vendedor(3,"Dylan","Seltzer");  
-      
-      Cliente c1= new Cliente("Gonzalo","Gimenez","Villa del Parque",1526152,"Gonza123@");
+
         
       Pc pc1= new Pc("HP Atlon One",5000,v1); 
       Pc pc2= new Pc("HP All In One",5000,v1); 
@@ -61,11 +62,7 @@
       pc4.agregarComp(ram4);
       pc4.agregarComp(p4);
       pc4.agregarComp(gab4);
-      
-      Factura f1= new Factura(c1,pc1,v1);
-      Factura f2= new Factura(c1,pc2,v1);
-      
-      
+
    
     %>
     <header>
@@ -83,7 +80,7 @@
     <div class="Main">
 
         <h1>Bienvenidos a TecnoWorld</h1>
-       <form action="Compra">
+        <form action="compra.jsp" method="post">
             <div class="economicas__container">
                 <div class="pcs__container">
                     <h2>Computadoras HP</h2>

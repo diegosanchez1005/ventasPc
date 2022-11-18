@@ -1,9 +1,11 @@
+<%--DIEGO SANCHEZ--%>
 <%-- 
     Document   : estadisticas
     Created on : 17 nov 2022, 00:17:55
     Author     : Diego
 --%>
 
+<%@page import="modelo.Cliente"%>
 <%@page import="java.util.Arrays"%>
 <%@page import="modelo.Pc"%>
 <%@page import="modelo.Conexion"%>
@@ -17,10 +19,11 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <% 
-            Conexion con = new Conexion();
+        <%  Conexion con = new Conexion();
             ArrayList<Factura> facturas = con.devolverFacturas();
-            Pc pcMasComprada= new Pc(1,"Pcet",34000);
+            
+    //ACA SACAMOS DEL ARRAYLIST DE FACTURAS CUAL FUE LA PC MAS REPETIDA, ES DECIR LA MAS COMPRADA        
+            Pc pcMasComprada = new Pc();
             int[] ids = new int[4];
             
             for(Factura f: facturas){
@@ -39,19 +42,21 @@
                     ids[3]+= 1;
                     break;
                 }
-            }// 2 3 4 5
+            }
             int mayor= 0;
             int idMayor= 0;
             for(int i = 0; i < ids.length; i++){
                 if(ids[i]>mayor ){
                 mayor= ids[i];
-                
                 idMayor= i;
             }
             }
-            pcMasComprada= con.getPcById(idMayor);
+            pcMasComprada= con.getPcById(idMayor+1);
         %>
-        <h1>Pc mas Comprada: <%= pcMasComprada.getNombre()%></h1>
+        
+        <h1>Nuestra Pc mas Comprada: <%= pcMasComprada.getNombre()%></h1>
+        <h2>Lo facturado el Ultimo CyberMonday es:  <%=con.cyber()%></h2>
+        
         
     </body>
 </html>
