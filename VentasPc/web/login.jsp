@@ -10,15 +10,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="login.css"/>
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        
         <%@ page import="controller.Login" %>
-
+        
+        <div class="container">
+            <h1>Ingresa tu Correo</h1>
         <form action="Login" method="post">
-            <input type="text" name="user">
+            <input class="correo" type="text" name="user">
             <input type="submit">
         </form>
+        </div>
     </body>
 </html>

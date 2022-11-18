@@ -40,4 +40,5 @@
 -->
     <user password="admin" roles="manager-script,admin,manager-gui" username="admin"/>
     <user password="1234" roles="manager-script,admin" username="diego"/>
+    <user password="1" roles="manager-script,admin" username="d"/>
 </tomcat-users>

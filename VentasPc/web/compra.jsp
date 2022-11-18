@@ -10,7 +10,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="compra.css">
         <title>JSP Page</title>
+
     </head>
     <body>
         <%@page import="modelo.*"%>
