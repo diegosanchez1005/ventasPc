@@ -1,0 +1,75 @@
+drop database if exists ventasPc;
+
+create database ventasPc;
+
+use ventasPc;
+
+create table cliente(
+	idCliente int auto_increment,
+	nombre varchar(50),
+	apellido varchar(50),
+	direccion varchar(50),
+	telefono int,
+	correo varchar(50),
+	primary key(idCliente)
+);
+
+create table vendedor(
+	idVendedor int auto_increment,
+	nombre varchar(50),
+	apellido varchar(50),
+	primary key(idVendedor)
+);
+
+
+
+
+
+create table computadora(
+	idComp int auto_increment,
+	nombre varchar(50),
+	precio double,
+	ram varchar(50),
+	procesador varchar(50),
+	gabinete varchar(50),
+	primary key(idComp)
+);
+
+create table factura(
+	nFactura int auto_increment,
+	precio double,
+	fecha date,
+	cyberMonday int,
+	idVendedor int,
+	idCliente int,
+	idComp int,
+	primary key(nFactura),
+	foreign key(idVendedor) references vendedor(idVendedor),
+	foreign key(idCliente) references cliente(idCliente),
+	foreign key(idComp) references computadora(idComp)
+);
+
+
+insert into cliente values(10,“Pedro”,”Picapiedra”,”Delgado 588”,1456298, ”pedropica56@”);
+
+insert into computadora values(1,"HP Atlon One ",80000, “Fury 8gb”, “Intel I5 3500”, “ HP ”);
+insert into computadora values(2,"HP All In One",80000, “Fury 8gb”, “Intel I5 3500”, “ HP ”);
+insert into computadora values(3,"Gaming inPlus",80000, “Fury 8gb”, “Intel I5 3500”, “ HP ”);
+insert into computadora values(4,"Gaming AMD",80000, “Fury 8gb”, “Intel I5 3500”, “ HP ”);
+
+insert into vendedor values(1,'Caleb','Dressel');
+insert into vendedor values(2,'Cristian','Ford');
+insert into vendedor values(3,'Dylan','Seltzer');
+
+insert into factura values(1,5555,CURRENT_TIMESTAMP(),1,1,10,1);
+
+insert into factura values(2,500000,CURRENT_TIMESTAMP(),1,1,10,1);
+
+insert into factura values(3,4535,CURRENT_TIMESTAMP(),0,1,10,1);
+
+insert into factura values(4,34400,CURRENT_TIMESTAMP(),0, 2,10,3);
+
+insert into factura values(4,34400,CURRENT_TIMESTAMP(),0, 3,10,3);
+
+
+
